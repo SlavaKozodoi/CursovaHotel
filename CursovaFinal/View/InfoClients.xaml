@@ -1,0 +1,62 @@
+﻿<Window x:Class="Cursova123.View.InfoClients"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
+        mc:Ignorable="d"
+        Title="InfoClients" Height="450" SizeToContent="Width" ResizeMode="CanMinimize">
+
+    <Window.Resources>
+        
+        <Style TargetType="DataGridCell">
+            <Setter Property="BorderBrush" Value="#f0bdb1"/>
+            <Setter Property="BorderThickness" Value="0.5"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+       
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#deaee8"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="DarkGray"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+       
+        <Style TargetType="DataGridRow">
+            <Setter Property="Background" Value="#f2c6bc"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="DarkGray"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#f4d0c7"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <DataGrid Background="#e9c9f0"  IsReadOnly="True" ItemsSource="{Binding Reservations}" AutoGenerateColumns="False" CanUserDeleteRows="True" CanUserAddRows="False" SelectionMode="Single" SelectedItem="{Binding SelectedReservation}" Margin="-7,0,-4,0">
+           
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер кімнати" Binding="{Binding RoomNumber}" />
+                <DataGridTextColumn Header="Клас кімнати" Binding="{Binding RoomClass}" />
+                <DataGridTextColumn Header="Кількість ліжок" Binding="{Binding BedsCount}" />
+                <DataGridTextColumn Header="ПІБ клієнта" Binding="{Binding GuestFullName}" />
+                <DataGridTextColumn Header="Номер телефону" Binding="{Binding PhoneNumber}" />
+                <DataGridTextColumn Header="Номер паспорту" Binding="{Binding PassportNumber}" />
+                <DataGridTextColumn Header="Дата заселення" Binding="{Binding CheckInDate}" />
+                <DataGridTextColumn Header="Дата виселення" Binding="{Binding CheckOutDate}" />
+                <DataGridTextColumn Header="Ціна за проживання" Binding="{Binding TotalPrice}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+    </Grid>
+</Window>
